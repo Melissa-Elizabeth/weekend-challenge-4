@@ -1,0 +1,9 @@
+CREATE TABLE task (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(80) NOT NULL,
+	completed BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE delete_task (
+	task_id REFERENCES task(id) ON DELETE CASCADE,
+);
