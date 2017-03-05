@@ -85,7 +85,7 @@ app.delete('/task/delete/:id', function(req, res){
       [taskID], //PARAM 2 variable that we're adding to the PG query (Replaces $1 in the query)
       function(err, result){ //PARAM 3 the function that is run after the query takes place
         done();
-        if(errorMakingQuery) {
+        if(err) {
           console.log('Err ', err);
           res.sendStatus(500);
         } else {

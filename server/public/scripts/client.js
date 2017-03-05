@@ -43,7 +43,7 @@ $(document).ready(function() {
     } // end of addTaskClicked function
 
     $('#taskTableBody').on('click', '.completeButton', function(){
-  location.reload();
+$(this).parent().parent().css('background-color', 'pink');
   var taskIDCompleted = $(this).parent().parent().data().id;
   var completedTaskObject = {
     id: taskIDCompleted
@@ -52,11 +52,13 @@ $(document).ready(function() {
     url: '/task/completed/' + taskIDCompleted,
     type: 'PUT',
     data: completedTaskObject,
-    success: function ( data ){
+    success: function (data){
+// getTaskData();
 
     console.log(completedTaskObject);
       } // end success
   }); // end ajax call
+
 }); // end click
 
     $('#taskTableBody').on('click', '.deleteButton', function(){
@@ -64,7 +66,7 @@ $(document).ready(function() {
   console.log('DeleteButton has ID: ', taskIDDelete);
 $.ajax({
   type: 'DELETE',
-  url: '/delete/' + taskIDDelete,
+  url: '/task/delete/' + taskIDDelete,
   success: function(response){
     console.log(response);
     getTaskData();
