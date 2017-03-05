@@ -25,8 +25,6 @@ app.get('/task/table', function(req, res){
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-      // We connected to the database!!!
-      // Now, we're gonna' git stuff!!!!!
       client.query('SELECT * FROM task', function(err, result){
         done();
         if(err) {
@@ -42,7 +40,7 @@ app.get('/task/table', function(req, res){
 });
 
 app.post('/task/new', function(req, res){
-  // This will be replaced with an INSERT statement to SQL
+
   var newTask = req.body;
 
   pool.connect(function(err, client, done){
@@ -51,8 +49,6 @@ app.post('/task/new', function(req, res){
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-      // We connected to the database!!!
-      // Now, we're gonna' git stuff!!!!!
       client.query('INSERT INTO task (name) VALUES ($1);',
       [newTask.taskName],
       function(err, result){
@@ -62,16 +58,16 @@ app.post('/task/new', function(req, res){
           res.sendStatus(500);
         } else {
           res.sendStatus(201);
-        }//end else
-      });
-    }
-  });
-});
+        } // end else
+      }); // end query
+    } // end else
+  }); // end pool function
+}); // end app.post
 
 
 app.delete('/task/delete/:id', function(req, res){
   var taskID = req.params.id;
-  console.log('book id to delete: ', taskID);
+  console.log(taskID);
 
   pool.connect(function(err, client, done){
     if(err) {
@@ -79,11 +75,10 @@ app.delete('/task/delete/:id', function(req, res){
       console.log('Err ', err);
       res.sendStatus(500);
     } else {
-      // We connected to the database!!!
-      // Now, we're gonna' git stuff!!!!!
-      client.query('DELETE FROM task WHERE id=$1;', //PARAM 1 $1 tells PG that we're looking for a variable
-      [taskID], //PARAM 2 variable that we're adding to the PG query (Replaces $1 in the query)
-      function(err, result){ //PARAM 3 the function that is run after the query takes place
+
+      client.query('DELETE FROM task WHERE id=$1;',
+      [taskID],
+      function(err, result){
         done();
         if(err) {
           console.log('Err ', err);
@@ -97,18 +92,18 @@ app.delete('/task/delete/:id', function(req, res){
 });//ends delete router
 
 app.put('/task/completed/:id', function(req, res){
-  var taskID = req.params.id; //finds the optional parameter
+  var taskID = req.params.id;
   var taskCompletedObject = req.body;
-  console.log('book id to save: ', taskID);
-
+  console.log(taskID);
   pool.connect(function(err, client, done){
     if(err) {
       // There was an error connecting to the database
-      console.log('Error connecting to database: ', err);
       res.sendStatus(500);
 
     } else {
-      client.query('UPDATE task SET completed = TRUE WHERE id = $1', [taskCompletedObject.id]);
+      client.query('UPDATE task SET completed = TRUE WHERE id = $1',  [taskCompletedObject.id]);
+      //    client.query ('INSERT INTO completed_tasks SELECT * FROM task WHERE completed = TRUE AND id = $1',
+      // [taskCompletedObject.id]); // Broken code. What am I doing wrong?!?!
       done();
       res.send(200);
     }

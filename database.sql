@@ -4,6 +4,8 @@ CREATE TABLE task (
 	completed BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE delete_task (
-	task_id REFERENCES task(id) ON DELETE CASCADE,
-);
+-- CREATE TABLE completed_tasks (
+-- 	id SERIAL PRIMARY KEY,
+-- 	completed_name VARCHAR(80) NOT NULL
+--
+-- ); // Created a completed_tasks table but it didn't work as planned

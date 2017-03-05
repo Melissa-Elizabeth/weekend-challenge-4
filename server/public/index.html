@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="vendor/jquery.js"></script>
-    <script src="scripts/client.js"></script>
-    <title>Weekend Challenge 4</title>
-  </head>
-  <body>
-    <h1>Melissa's To-Do List</h1>
-    <div id = "addTask">
-    <input id="addTaskInput" type="text" name="" placeholder="Add a Task" value="">
-    <button id="addTaskButton" type="button">Add Task</button>
-  </div> <br><br>
-    <div id = "taskTable">
-      <table>
-        <thead>
-        <tr>
-        <th>Task</th>
-        <th>Complete</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody id="taskTableBody">
-    </tbody>
-    </table>
-  </div>
-  </body>
-</html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="vendor/jquery.js"></script>
+  <script src="scripts/client.js"></script>
+  <title>Weekend Challenge 4</title>
+</head>
+<body>
+  <center><h1>Melissa's To-Do List
+    <img src="/images/chores.png"  style="width:120px;height:250px;"></h1></center><br><br>
+    <center>
+      <div id = "addTask">
+        <input id="addTaskInput" type="text" name="" placeholder="Add a Task" value="">
+        <button id="addTaskButton" type="button">Add Task</button>
+      </div></center> <br><br>
+      <center>
+        <div id = "taskTable">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Complete</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody">
+            </tbody>
+          </table>
+          <br><br>
+          <table>
+            <thead>
+              <tr>
+                <th>Completed Task</th>
+              </tr>
+            </thead>
+            <tbody id="CompletedTaskTableBody">
+            </tbody>
+          </table>
+        </div>
+      </center>
+    </body>
+    </html>
