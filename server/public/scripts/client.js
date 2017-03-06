@@ -11,7 +11,7 @@ $(document).ready(function() {
           var currentTaskInfo = response[i];
           var $newTaskInfo = $('<tr>'); //create a new row for each task info
           $newTaskInfo.data('id', currentTaskInfo.id); //adds data ID to the task object so we can call it later
-          $newTaskInfo.append('<td>' + currentTaskInfo.name + '</td>'); //
+          $newTaskInfo.append('<td class="taskName">' + currentTaskInfo.name + '</td>'); //
           $newTaskInfo.append('<td><button class="completeButton">Completed</button>');
           $newTaskInfo.append('<td><button class="deleteButton">Delete</button>');
           if(currentTaskInfo.completed === true) {
@@ -42,7 +42,7 @@ $(document).ready(function() {
         getTaskData();
       }, // end of success
       error: function(error) {
-        console.log('error dude');
+        console.log('error friend');
       } //end of error
     }); // end of ajax
   } // end of addTaskClicked function

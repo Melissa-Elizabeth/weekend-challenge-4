@@ -20,4 +20,72 @@ h1 img {
 
 table, th, td {
    border: 1px solid black;
+   height: 40px;
+   width: 900px;
 }
+
+th {
+  font-size: 24px;
+}
+
+.taskName {
+  font-size: 24px;
+}
+
+ .completeButton {
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+   padding: 5px 20px;
+   font-size: 24px;
+   cursor: pointer;
+   text-align: center;
+   color: pink;
+   background-color: red;
+   border-radius: 15px;
+
+}
+
+.deleteButton {
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+   padding: 5px 20px;
+   font-size: 24px;
+   cursor: pointer;
+   text-align: center;
+   color: pink;
+   background-color: red;
+   border-radius: 15px;
+
+}
+
+#addTaskInput {
+   height: 30px;
+   width: 400px;
+   font-size: 24px;
+}
+
+#addTaskButton {
+  display: inline-block;
+   padding: 10px 20px;
+   font-size: 24px;
+   cursor: pointer;
+   text-align: center;
+   color: red;
+   background-color: pink;
+   border-radius: 15px;
+   box-shadow: 0 9px #999;
+ }
+
+ #addTaskButton:hover {background-color: #e78d9d}
+
+ #addTaskButton:active {
+   background-color: #e78d9d;
+   box-shadow: 0 5px #666;
+   transform: translateY(4px);
+ }
+
+ #taskTable {
+   height: 200px;
+ }
